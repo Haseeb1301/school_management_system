@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block body %}
+<br>
+<th>
+  <h4><i class="fa-solid fa-list fa-lg"></i> ALL TEACHERS </h4>
+</th>
+
+<table class="table table-hover">  
+    <thead>
+      <tr>
+        <th scope="col">NO.#</th>
+        <th scope="col">TEACHER ID</th>
+        <th scope="col">TEACHER FIRST NAME</th>
+        <th scope="col">TEACHER LAST NAME</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">COURSE</th>       
+        <th scope="col">DETAILS</th>
+      </tr>
+    </thead>
+    {% for teacher in teachers %}
+    <tbody>   
+      <tr class="table-info">     
+        <td>{{ forloop.counter }}</td>
+        <td>{{ teacher.teacher_number }}</td>
+        <td>{{ teacher.first_name }}</td>
+        <td>{{ teacher.last_name }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.course }}</td>        
+        <td>
+          
+          {% comment %} <a href="{% url 'details' teacher.id %}">
+            <button type= "button" class="btn btn-success me-1" >
+                <i class="fa-solid fa-user"></i>               
+            </button>
+          </a> {% endcomment %}
+
+            <a class = "btn btn-warning me=1" href="{% url 'edit' teacher.id %}">
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+            </a>
+            <button type = "button" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{teacher.id}}">
+              <i class="fa-solid fa-trash-can fa-lg"></i>
+            </button>
+
+            <div class="modal" id = "delete{{teacher.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">
+                      Teacher : {{teacher.first_name}} {{teacher.last_name}}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true"></span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   <p>Are you sure you want to DELETE this Teacher?</p>
+                  </div>
+                  <div class="modal-footer"> 
+                    <form action="{% url 'delete' teacher.id %}" method = "POST">
+                      {% csrf_token %}
+                      <input type="submit" class = "btn btn-primary" value = "Delete">
+                    </form>                             
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </td>        
+      </tr>      
+
+    </tbody>
+    {% endfor %} 
+  </table>
+
+{% endblock %}
