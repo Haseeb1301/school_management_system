@@ -5,7 +5,7 @@
     {% if success %}
         <div class = "alert alert-success" role = "alert">
             The new student added successfully.
-            <a href="{% url 'index' %}" class = "alert-link">Go to Home Page</a>
+            :<a href="{% url 'student:sindex' %}" class = "alert-link">Go to Home Page</a>
         </div>
     {% else %}
         <div class = "row justify-content-center">
@@ -15,11 +15,11 @@
                         <i class="fa-solid fa-address-card fa-lg"></i> Student Registration
                     </div>
                     <div class="card-body">
-                      <form action="{% url 'add' %}" method = "POST">
+                      <form action="{% url 'student:add' %}" method = "POST">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type = "submit" class = "btn btn-primary">Add</button>
-                        <a href="{% url 'sindex' %}" class = "btn btn-secondary">Cancel</a>
+                        <a href="{% url 'student:sindex' %}" class = "btn btn-secondary">Cancel</a>
                       </form>
                     </div>
                   </div>

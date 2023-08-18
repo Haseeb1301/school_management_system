@@ -13,7 +13,7 @@ def index(request):
 
 def view_teachers (request):
     teacher = Teacher.objects.all()
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('teachers:index'))
 
 
 def add(request):
@@ -35,7 +35,7 @@ def add(request):
             )
 
             new_teacher.save()
-            return render (request, 'teacher/add.html', {
+            return render (request, 'teachers/add.html', {
                 'form' : TeacherForm(),
                 'success' : True
             }) 

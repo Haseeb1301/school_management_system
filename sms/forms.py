@@ -1,12 +1,12 @@
 # from django import forms
-# from .models import Teacher
+# from .models import Profile
 
-# class TeacherForm(forms.ModelForm):
+# class ProfileForm(forms.ModelForm):
 #     class Meta:
-#         model =  Teacher
-#         fields = ['teacher_number', 'first_name', 'last_name', 'email','course']
+#         model =  Profile
+#         fields = ['id_number', 'first_name', 'last_name', 'email','course']
 #         labels = {
-#             'teacher_number' : 'Teacher Number',
+#             'id_number' : 'ID Number',
 #             'first_name' : 'First Name',
 #             'last_name' : 'Last Name',
 #             'email' : 'Email', 
@@ -14,7 +14,7 @@
 #         }
 
 #         widgets = {
-#            'teacher_number' : forms.NumberInput(attrs={'class': 'form-control'}), 
+#            'id_number' : forms.NumberInput(attrs={'class': 'form-control'}), 
 #            'first_name': forms.TextInput(attrs={'class': 'form-control'}), 
 #            'last_name' : forms.TextInput(attrs={'class': 'form-control'}), 
 #            'email' : forms.EmailInput(attrs={'class': 'form-control'}),
