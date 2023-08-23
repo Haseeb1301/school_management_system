@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
-    <style media="screen">
-      *,
+    
+ <!--Stylesheet for Login Page-->
+<style media="screen">
+    
 *:before,
 *:after{
     padding: 0;
@@ -132,7 +134,8 @@ button{
   margin-right: 4px;
 }
 
-    </style>
+</style>
+
 </head>
 <body>
     <div class="background">
@@ -141,12 +144,14 @@ button{
     </div>
     <form method="post">
         <h3>Login Here</h3>
+
         {% csrf_token %} 
+        
         <label for="username">Username</label>
-        <input type="text" placeholder="Enter Username" id="username" name="username">
+        <input type="text" placeholder="Enter Your Username" id="username" name="username">
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Enter Password" id="password" name="pass">
+        <input type="password" placeholder="Enter Your Password" id="password" name="pass">
 
         <button type="submit">Log In</button>
        

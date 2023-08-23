@@ -1,13 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
     <title>Registration</title>
- 
+    <link rel="stylesheet" href="static/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
+    
+    <!--Stylesheet for Signup-->
     <style media="screen">
       *,
 *:before,
@@ -51,7 +53,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 600px;
+    height: auto;
     width: 450px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -84,7 +86,7 @@ label{
     font-size: 16px;
     font-weight: 500;
 }
-input{
+input, select{
     display: block;
     height: 40px;
     width: 100%;
@@ -94,6 +96,9 @@ input{
     margin-top: 2px;
     font-size: 14px;
     font-weight: 300;
+}
+option {
+  color: black;
 }
 ::placeholder{
     color: #e5e5e5;
@@ -142,7 +147,17 @@ button{
   display:block;
 }
 
-    </style>
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
 </head>
 <body>
     <div class="background">
@@ -150,7 +165,9 @@ button{
         <div class="shape"></div>
     </div>
     <form action="" method="post">
+
         {% csrf_token %} 
+
         <h3>REGISTRATION</h3>      
      
         <div class="row">
@@ -168,13 +185,19 @@ button{
         <input type="text" placeholder="Enter Username" name="username" id="username">
 
         <label for="email">Email</label>
-        <input type="email" placeholder="Enter Email" name="email" id="email">
+        <input type="email" placeholder="Enter Email" name="email" id="email">       
 
         <label for="password1">Password</label>
         <input type="password" placeholder="Enter Password" id="password1" name="password1">
 
         <label for="password2">Confrom Password</label>
         <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+        
+        <label for="type">I am a: </label>
+        <select name="type">
+          <option value="teacher"> Teacher </option>
+          <option value="student"> Student </option>
+        </select>
         
         <button type="submit">Signup</button>
         

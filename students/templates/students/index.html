@@ -4,6 +4,7 @@
 <br>
 <th>
   <h4><i class="fa-solid fa-list fa-lg"></i> ALL STUDENTS </h4>
+  <h5> Welcome {{current_user.username}} </h5>
 </th>
 
 <table class="table table-hover">  
@@ -23,26 +24,26 @@
     <tbody>   
       <tr class="table-info">     
         <td>{{ forloop.counter }}</td>
-        <td>{{ student.student_number }}</td>
+        <td>{{ student.profile.id_number }}</td>
         <td>{{ student.first_name }}</td>
         <td>{{ student.last_name }}</td>
         <td>{{ student.email }}</td>
-        <td>{{ student.field_of_study }}</td>
-        <td>{{ student.marks }}</td>
-        <td>
-          <a href="{% url 'student:details' student.id %}">
+        {% comment %} <td>{{ student.field_of_study }}</td> {% endcomment %}
+        {% comment %} <td>{{ student.marks }}</td> {% endcomment %}
+        {% comment %} <td>
+          <a href="{% url 'student:details' student.profile.id_number %}">
             <button type= "button" class="btn btn-success me-1" >
                 <i class="fa-solid fa-user"></i>               
             </button>
           </a>
-            <a class = "btn btn-warning me=1" href="{% url 'student:edit' student.id %}">
+            <a class = "btn btn-warning me=1" href="{% url 'student:edit' student.profile.id_number %}">
                 <i class="fa-solid fa-pen-to-square fa-lg"></i>
             </a>
-            <button type = "button" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{student.id}}">
+            <button type = "button" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{student.profile.id_number}}">
               <i class="fa-solid fa-trash-can fa-lg"></i>
             </button>
 
-            <div class="modal" id = "delete{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+            <div class="modal" id = "delete{{student.profile.id_number}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -57,7 +58,7 @@
                    <p>Are you sure you want to DELETE this Student?</p>
                   </div>
                   <div class="modal-footer"> 
-                    <form action="{% url 'student:delete' student.id %}" method = "POST">
+                    <form action="{% url 'student:delete' student.profile.id_number %}" method = "POST">
                       {% csrf_token %}
                       <input type="submit" class = "btn btn-primary" value = "Delete">
                     </form>                             
@@ -66,7 +67,7 @@
                 </div>
               </div>
             </div>
-        </td>        
+        </td>         {% endcomment %}
       </tr>      
 
     </tbody>

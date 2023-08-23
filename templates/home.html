@@ -1,10 +1,14 @@
-<h1>This is home page</h1> 
 
+{% if type == 'student' %}
+   <h1>Welcome Student! </h1>
+{% elif type == 'teacher'%}
+   <h1>Welcome Taecher! </h1>
+{% endif %}
 
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %}
 
 {% block body %}
 
    <h1>Successfully Login</h1>  
 
-{% endblock %}
+{% endblock %} {% endcomment %}

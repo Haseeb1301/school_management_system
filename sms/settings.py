@@ -31,14 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'students',
+    'teachers',
+    'userprofile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'students',
-    'teachers'
 ]
 
 MIDDLEWARE = [
@@ -57,8 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',        
         'DIRS': [
-            BASE_DIR/ 'templates'
-            # HOME_DIR/ 'templates'
+            BASE_DIR/ 'templates'            
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -81,8 +81,7 @@ WSGI_APPLICATION = 'sms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # 'NAME': HOME_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',       
     }
 }
 
@@ -127,3 +126,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AUTH_USER_MODEL = "user.User"
