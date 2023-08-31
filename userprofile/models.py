@@ -1,6 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import AbstractUser
-
+from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
 
 # class CustomUser(AbstractUser):
@@ -10,6 +9,10 @@ from django.contrib.auth.models import User
 #         ('teacher', 'Teacher')
 #     )
 #     account_type = models.CharField(max_length=20, choices=ACCOUNT_TYPE_CHOICES)
+
+# class CustomUser(AbstractUser):
+#     is_student = models.BooleanField('student status', default=False)
+#     is_teacher = models.BooleanField('teacher status', default=False)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)

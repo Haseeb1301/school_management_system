@@ -16,29 +16,31 @@
         <i class="fa-solid fa-building-columns fa-lg"></i> School Management System
       </a>
 
-      {% comment %} <a class="navbar-brand" href="{% url 'teacher:tindex' %}">
+      <a class="navbar-brand" href="{% url 'teacher:tindex' %}">
         <i class="fa-solid fa-chalkboard-user"></i> All Teachers
-      </a> {% endcomment %}
+      </a>
 
       <a class="navbar-brand" href="{% url 'student:sindex' %}">
         <i class="fa-solid fa-graduation-cap"></i> All Students
+      </a>     
+      <a class="navbar-brand" href="{% url 'student:sindex' %}">
+        <i class="fa-solid fa-graduation-cap"></i> All Courses
       </a>     
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
         aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">  
           <li class="nav-item">
-
-            {% comment %} <a class="nav-link" href="{% url 'teacher:add' %}">
-              <i class="fa-solid fa-plus fa-lg"></i> Add Teachers {% endcomment %}
+            <a class="nav-link" href="{% url 'teacher:add' %}">
+              <i class="fa-solid fa-plus fa-lg"></i> Add Teachers 
             </a>
-
-            {% comment %} <a class="nav-link" href="{% url 'student:add' %}">
+            <a class="nav-link" href="{% url 'student:add' %}">
               <i class="fa-solid fa-plus fa-lg"></i> Add Students
-            </a>            {% endcomment %}
+            </a>          
 
           </li>
         </ul>

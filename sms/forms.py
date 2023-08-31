@@ -1,50 +1,51 @@
-# from django import forms
-# from .models import CustomUser, Profile
+from django import forms
+from teachers.models import CustomUser
+# from teachers.models import CustomUser, Profile
 
-# class AdminSignUpForm(forms.ModelForm):
-#     # Define the form fields for the admin sign-up form
-#     account_type = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='admin')
-#     first_name = forms.CharField(max_length=30)
-#     last_name = forms.CharField(max_length=30)
-#     email = forms.EmailField()
-#     username = forms.CharField(max_length=150)
-#     password = forms.CharField(max_length=128, widget=forms.PasswordInput())
+class AdminSignUpForm(forms.ModelForm):
+    # Define the form fields for the admin sign-up form
+    account_type = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='admin')
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    email = forms.EmailField()
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput())
 
-#     class Meta:
-#         model = CustomUser
-#         fields = ['first_name', 'last_name', 'email', 'username', 'password']
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'email', 'username', 'password']
         
-# class StudentSignUpForm(forms.ModelForm):
-#     # Define the form fields for the student sign-up form
-#     account_type = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='student')
-#     first_name = forms.CharField(max_length=30)
-#     last_name = forms.CharField(max_length=30)
-#     email = forms.EmailField()
-#     username = forms.CharField(max_length=150)
-#     password = forms.CharField(max_length=128, widget=forms.PasswordInput())
+class StudentSignUpForm(forms.ModelForm):
+    # Define the form fields for the student sign-up form
+    account_type = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='student')
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    email = forms.EmailField()
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput())
 
-#     class Meta:
-#         model = CustomUser
-#         fields = ['first_name', 'last_name', 'email', 'username', 'password']
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'email', 'username', 'password']
         
-# class TeacherSignUpForm(forms.ModelForm):
-#     # Define the form fields for the teacher sign-up form
-#     account_type = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='teacher')
-#     first_name = forms.CharField(max_length=30)
-#     last_name = forms.CharField(max_length=30)
-#     email = forms.EmailField()
-#     username = forms.CharField(max_length=150)
-#     password = forms.CharField(max_length=128, widget=forms.PasswordInput())
+class TeacherSignUpForm(forms.ModelForm):
+    # Define the form fields for the teacher sign-up form
+    account_type = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='teacher')
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    email = forms.EmailField()
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput())
 
-#     class Meta:
-#         model = CustomUser
-#         fields = ['first_name', 'last_name', 'email', 'username', 'password']
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'email', 'username', 'password']
         
-# class LoginForm(forms.Form):
-#     username = forms.CharField(max_length=150)
-#     password = forms.CharField(max_length=128, widget=forms.PasswordInput())
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(max_length=128, widget=forms.PasswordInput())
 
-# 
+
 
 
 
