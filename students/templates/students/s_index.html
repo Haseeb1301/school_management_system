@@ -28,46 +28,43 @@
         <td>{{ student.first_name }}</td>
         <td>{{ student.last_name }}</td>
         <td>{{ student.email }}</td>
-        {% comment %} <td>{{ student.field_of_study }}</td> {% endcomment %}
-        {% comment %} <td>{{ student.marks }}</td> {% endcomment %}
-        {% comment %} <td>
-          <a href="{% url 'student:details' student.profile.id_number %}">
-            <button type= "button" class="btn btn-success me-1" >
-                <i class="fa-solid fa-user"></i>               
-            </button>
+         <td>{{ student.field_of_study }}</td>
+        <td>{{ student.marks }}</td> 
+        <td>
+          {% comment %} <a href="{% url 'details' student.profile.id_number %}"> {% endcomment %}
+            <a class = "btn btn-warning me=1" href="">
+              <i class="fa-solid fa-pen-to-square fa-lg"></i>
           </a>
-            <a class = "btn btn-warning me=1" href="{% url 'student:edit' student.profile.id_number %}">
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
-            </a>
-            <button type = "button" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{student.profile.id_number}}">
-              <i class="fa-solid fa-trash-can fa-lg"></i>
-            </button>
+          <button type = "submit" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{student.id}}">
+            <i class="fa-solid fa-trash-can fa-lg"></i>
+          </button>
 
-            <div class="modal" id = "delete{{student.profile.id_number}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">
-                      Student : {{student.first_name}} {{student.last_name}}
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true"></span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                   <p>Are you sure you want to DELETE this Student?</p>
-                  </div>
-                  <div class="modal-footer"> 
-                    <form action="{% url 'student:delete' student.profile.id_number %}" method = "POST">
-                      {% csrf_token %}
-                      <input type="submit" class = "btn btn-primary" value = "Delete">
-                    </form>                             
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  </div>
+          <div class="modal" id = "delete{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    Student : {{student.first_name}} {{student.last_name}}
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <p>Are you sure you want to DELETE this Student?</p>
+                </div>
+                <div class="modal-footer"> 
+                  {% comment %} <form action="{% url 'students:delete' student.id %}" method = "POST"> {% endcomment %}
+                  <form action="{% url 's_delete' student.id %}" method = "post">
+                    {% csrf_token %}
+                    <input type="submit" class = "btn btn-primary" value = "Delete">
+                  </form>                             
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
-        </td>         {% endcomment %}
+          </div>
+        </td>         
       </tr>      
 
     </tbody>

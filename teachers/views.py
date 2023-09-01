@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect,HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.urls import reverse
 
 from .models import Teacher
@@ -66,9 +66,10 @@ def edit(request, id):
 
 def delete(request, id):
     if request.method == 'POST':
-        teacher = teacher.objects.get(pk=id)
+        teacher = Teacher.objects.get(pk=id)
+        print(teacher.id)
         teacher.delete()
-    return HttpResponseRedirect(reverse('tindex'))
+    return HttpResponseRedirect(reverse('teachers:index'))
 
 def details(request, id):
     return render(request, 'teachers/t_details.html')

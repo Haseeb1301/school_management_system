@@ -38,7 +38,7 @@
             <a class = "btn btn-warning me=1" href="">
                 <i class="fa-solid fa-pen-to-square fa-lg"></i>
             </a>
-            <button type = "button" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{teacher.id}}">
+            <button type = "submit" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{teacher.id}}">
               <i class="fa-solid fa-trash-can fa-lg"></i>
             </button>
 
@@ -58,9 +58,9 @@
                   </div>
                   <div class="modal-footer"> 
                     {% comment %} <form action="{% url 'teachers:delete' teacher.id %}" method = "POST"> {% endcomment %}
-                    <form action="/delete/" method = "POST">
+                    <form action="{% url 'delete' teacher.id %}" method = "post">
                       {% csrf_token %}
-                      <input type="submit" class = "btn btn-primary" value = "Delete">
+                      <input type="submit" class = "btn btn-primary" id="delete" value = "Delete">
                     </form>                             
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                   </div>

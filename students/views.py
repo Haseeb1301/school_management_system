@@ -10,12 +10,11 @@ from .forms import StudentForm
 # Create your views here.
 
 def index(request):
-    students = User.objects.filter(profile__type='student')    
+    students = Student.objects.all()    
     return render (request, 'students/s_index.html', { 'students' : students, 'current_user': request.user })
 
 def view_student (request, id_number):
-    student = User.objects.get(profile__id_number=id_number)
-    return   
+    student = User.objects.get(profile__id_number=id_number)  
     return HttpResponseRedirect(reverse('sindex'))
 
 
@@ -69,11 +68,16 @@ def edit(request, id):
             })       
     return render(request , 'students/s_edit.html')
 
+# def delete(request, id):
+#     if request.method == 'POST':
+#         student = Student.objects.get(pk=id)
+#         student.delete()
+#     return HttpResponseRedirect(reverse('sindex'))
 def delete(request, id):
     if request.method == 'POST':
-        student = Student.objects.get(pk=id)
+        student = Student.objects.get(pk=id)        
         student.delete()
-    return HttpResponseRedirect(reverse('sindex'))
+    return HttpResponseRedirect(reverse('student:sindex'))
 
 def details(request, id):
     student=Student.objects.get(pk=id)
