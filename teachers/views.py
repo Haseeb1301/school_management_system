@@ -69,7 +69,7 @@ def delete(request, id):
         teacher = Teacher.objects.get(pk=id)
         print(teacher.id)
         teacher.delete()
-    return HttpResponseRedirect(reverse('teachers:index'))
+    return HttpResponseRedirect(reverse('teacher:tindex'))
 
 def details(request, id):
     return render(request, 'teachers/t_details.html')

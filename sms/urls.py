@@ -11,6 +11,9 @@ urlpatterns = [
     
     path('student/', include("students.urls")),
     path('teacher/', include('teachers.urls')),
+    
+    path('courses/', views.course, name='course'),
+    
    
 
     # path('student/', views.index, name='sindex'),

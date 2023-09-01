@@ -15,6 +15,8 @@ from teachers.forms import TeacherForm
 from students.models import Student
 from students.forms import StudentForm
 
+def course(request):
+    return render(request, 'courses/subjects.html')
 
 def home_page (request):       
     return render(request, 'home.html')
