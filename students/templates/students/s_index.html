@@ -31,8 +31,14 @@
          <td>{{ student.field_of_study }}</td>
         <td>{{ student.marks }}</td> 
         <td>
-          {% comment %} <a href="{% url 'details' student.profile.id_number %}"> {% endcomment %}
-            <a class = "btn btn-warning me=1" href="">
+          {% comment %} <a href="{% url 's_details' student.id %}"> {% endcomment %} 
+          <form action="" method = "post">
+          <a class = "btn btn-success me-1" href="">
+              <i class="fa-solid fa-user"></i>
+          </a>
+          {% comment %} <form action="{% url 's_edit' student.id %}" method = "post"> {% endcomment %}
+          <form action="" method = "post">
+          <a class = "btn btn-warning me=1" href="">
               <i class="fa-solid fa-pen-to-square fa-lg"></i>
           </a>
           <button type = "submit" class = "btn btn-danger" data-bs-toggle = "modal" data-bs-target = "#delete{{student.id}}">

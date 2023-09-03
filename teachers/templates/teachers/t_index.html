@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block body %}
+
 <br>
 <th>
   <h4><i class="fa-solid fa-list fa-lg"></i> ALL TEACHERS </h4>
+  <h5> Welcome {{current_user.username}} </h5>
 </th>
 
 <table class="table table-hover">  
@@ -28,13 +30,14 @@
         <td>{{ teacher.course }}</td>        
         <td>
           
-          {% comment %} <a href="{% url 'details' teacher.id %}">
-            <button type= "button" class="btn btn-success me-1" >
-                <i class="fa-solid fa-user"></i>               
-            </button>
-          </a> {% endcomment %}
-
+            {% comment %} <a href="{% url 't_details' teacher.id %}"> {% endcomment %} 
+            <form action="" method = "post">
+              <a class = "btn btn-success me-1" href="">
+                    <i class="fa-solid fa-user"></i>
+              </a>
             {% comment %} <a class = "btn btn-warning me=1" href="{% url 'teachers:edit' teacher.id %}"> {% endcomment %}
+              {% comment %} <form action="{% url 't_edit' teacher.id %}" method = "post"> {% endcomment %}
+            <form action="" method = "post">
             <a class = "btn btn-warning me=1" href="">
                 <i class="fa-solid fa-pen-to-square fa-lg"></i>
             </a>

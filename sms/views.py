@@ -15,6 +15,33 @@ from teachers.forms import TeacherForm
 from students.models import Student
 from students.forms import StudentForm
 
+def grade(request):
+    return render(request, 'courses/grades.html')
+
+def add_grade(request):
+    return render(request, 'courses/add_grades.html')
+
+def exam(request):
+    return render(request, 'courses/exams.html')
+
+def add_exam(request):
+    return render(request, 'courses/add_exams.html')
+
+def enrollment(request):
+    return render(request, 'courses/enrollment.html')
+
+def attendence(request):
+    return render(request, 'courses/attendence.html')
+
+def add_attendence(request):
+    return render(request, 'courses/add_attendence.html')
+
+def assignment(request):
+    return render(request, 'courses/assignments.html')
+
+def add_assignment(request):
+    return render(request, 'courses/add_assignments.html')
+
 def course(request):
     return render(request, 'courses/subjects.html')
 
